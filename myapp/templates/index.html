@@ -1,0 +1,1454 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AmbuGO</title>
+    <mata name="viewport"></mata>
+    <link rel="stylesheet" href="{% static 'design.css' %}" type="text.css">
+
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,400;0,600;0,900;1,100;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+
+
+<body onload="initMap()">
+    <section id="hero">
+        <nav class="navigation">
+            <a class="logo" href="#">
+                <span>Ambu</span> Go App</a>
+            <ul class="menu">
+                <li>
+                    <a href="{% url 'booking_page' %}">Book An Ambulance</a>
+                </li>
+                <li>
+                    <a href="{% url 'booking_history' %}">Booking History</a>
+                </li>
+                <li>
+                    <a href="{% url 'confirmation_page' %}">Confirmation Page</a>
+                </li>
+                <li>
+                    <a href="{% url 'ambulance_registration' %}">Registration</a>
+                </li>
+            </ul>
+            <a href="{% url 'booking_page' %}" class="nav-appointment-btn">Emergence!</a>
+
+
+
+        </nav>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Welcome to Ambulance Go App!</h1>
+                <p>Get fast and reliable ambulance rides in minutes with Ambulance Go! Our app is easy to use and equipped with key features that make it simple to book an ambulance when you need it most.</p>
+                <div class="hero-text-btns">
+                    <a href="{% url 'booking_page' %}"><i class="fa-solid fa-magnifying-glass"></i>Find Ambulance</a>
+
+                    <a href="{% url 'booking_page' %}"><i class="fa-solid fa-check"></i>Book Ambulance</a>
+                </div>
+            </div>
+            <div class="hero-img">
+                <img src="{% static 'img/TOYOTA.png'%}" alt="...">
+            </div>
+        </div>
+
+    </section>
+    <div class="appointment-search-container">
+        <h3>Find Best Ambulance</h3>
+        <div class="appointment-search">
+            <div class="appo-search-box"><i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Search Ambulance Here">
+            </div>
+            <div class="appo-search-box"><i class="fa-solid fa-location-dot"></i>
+                <input type="text" placeholder="Set Your Location">
+
+            </div>
+            <button><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+    </div>
+
+    <section class="what-we-provide">
+
+        <div class="w-infor-box w-infor-box4">
+            <div class="w-infor-icon">
+                <i class="fa-solid fa-truck-medical"></i>
+
+
+            </div>
+            <div class="w-infor-text">
+                <strong>
+                    Book Ambulance
+
+                </strong>
+                <p> Patients can schedule ambulance services at a later time or immediately.</p>
+            </div>
+
+        </div>
+        <div class="w-infor-box w-infor-box5">
+            <div class="w-infor-icon">
+                <i class="fa-solid fa-car-on"></i>
+
+            </div>
+            <div class="w-infor-text">
+                <strong>
+                    Emergency Button
+
+                </strong>
+                <p> Emergency button accessible from lock screen for medical emergencies.</p>
+            </div>
+
+        </div>
+        <div class="w-infor-box w-infor-box6">
+            <div class="w-infor-icon">
+                <i class="fa-solid fa-location-dot"></i>
+
+            </div>
+            <div class="w-infor-text">
+                <strong>
+                    Track Ambulance
+
+                </strong>
+                <p>Patient can track ambulance progress and locate driver.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="fnb">
+
+
+        <div class="L1">
+
+            <h5>Features</h5>
+            <ul style="list-style-type:circle;">
+                <li>
+                    Real-time ambulance tracking for accurate arrival times
+                </li>
+                <li>
+                    Seamless ambulance booking process for quick and efficient service
+                </li>
+                <li>
+                    Emergency response team available 24/7 to ensure immediate assistance
+                </li>
+                <li>
+                    Advanced medical equipment and trained professionals on board each ambulance
+                </li>
+                <li>
+                    Secure payment options and transparent pricing for peace of mind
+                </li>
+            </ul>
+        </div>
+        <div class="L2">
+            <h4>Benefits</h4>
+            <ul style="list-style-type:circle;">
+                <li>
+                    Efficient ambulance booking process
+                </li>
+                <li>
+                    Real-time ambulance tracking for quick response
+                </li>
+                <li>
+                    Improved emergency medical services
+                </li>
+                <li>
+                    Increased safety and security for patients
+                </li>
+                <li>
+                    Enhanced communication between ambulance services and patients
+                </li>
+            </ul>
+        </div>
+
+
+
+
+    </section>
+    <section id="our-story">
+        <div class="our-story-img">
+            <img src="{% static 'img/story.jpg'%}" alt="...">
+        </div>
+        <div class="our-story-text">
+            <h2>Our Story.</h2>
+            <p>
+                One day <span>Christopher</span> wanted to use his knowlegde of technology to come up with an idea that could benefit his society and the entire world at large. He saw the need for an application one can use to get quick medical access
+                in just afew taps. This led to the creation of an app called "Ambulance Go" to help people in times of need. He assembled a team of skilled developers, designers, and medical professionals to help him bring his vision to life. <br> The
+                app quickly became a hit among users due to its intuitive interface, quick response time, and precise location services. One day, a man named Raymond was able to locate the nearest ambulance and call for emergency medical assistance, saving
+                his life. Chris and his team continued to work on the app, adding new features and functionalities to make it even more helpful for users. The Ambulance Go app is a powerful example of how technology can be used to improve people's lives.
+            </p>
+
+        </div>
+        </div>
+    </section>
+
+
+    <section id="team">
+        <div class="team-heading">
+            <h3>Meet Our Specialists.</h3>
+            <p>Meet our team of expert medical specialists who are available round the clock to provide you with the best healthcare services. Each of our specialists is highly qualified and experienced in their respective fields, ensuring that you receive
+                top-notch medical care whenever you need it.</p>
+        </div>
+        <div class="main">
+            <div class="profile-card">
+                <div class="img">
+                    <img src="{% static 'img/dr12.jpg'%}">
+                </div>
+                <div class="caption">
+                    <h3>Dr. Kityo Mark</h3>
+                    <p>First Aid</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="profile-card">
+                <div class="img">
+                    <img src="{% static 'img/bibi.jpg'%}">
+                </div>
+                <div class="caption">
+                    <h3> Dr. Bibian N</h3>
+                    <p>Head Nurse</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="profile-card">
+                <div class="img">
+                    <img src="{% static 'img/driver1.jpg'%}">
+                </div>
+                <div class="caption">
+                    <h3> Sean Austin</h3>
+                    <p>Driver</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+
+    <div class="maps_title">
+        <H2>Testimonials</H2>
+        <p>Read what our satisfied customers have to say about our ambulance services. <br> Their testimonials showcase our commitment to providing efficient and reliable medical transportation to those in need.</p>
+    </div>
+
+    <section id="test">
+        <div id="carouselExampleCaptions" class="carousel slide">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="{% static 'img/farmer.jpg'%}" style="width: 100%; height: 600px; object-fit: cover; object-position: center; color: #000000;" alt="...">
+
+
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Happy FarmerTestimony</h5>
+                        <p>I was out on my farm when I suddenly started experiencing chest pains. I knew I needed medical attention immediately, but I was in a remote area and didn't know how to get help quickly. Then I remembered the Ambulance Go app that
+                            my son had installed on my phone. I quickly opened the app and requested an ambulance. Within minutes, I received a notification that an ambulance was on its way. The ambulance arrived promptly and the paramedics provided me
+                            with excellent care during the journey to the hospital. Thanks to Ambulance Go, I was able to receive timely medical attention that saved my life. I highly recommend this app to anyone who needs emergency medical services,
+                            especially those living in remote areas like me.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'img/pw.jpg'%}" style="width: 100%; height: 600px; object-fit: cover; object-position: center; color: #000000;" alt="...">
+
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Happy Mother Testimony</h5>
+                        <p>I can't thank the team at Ambulance Go enough for their prompt response when I called for an ambulance in the middle of the night. As a pregnant woman experiencing complications, I was terrified, but the dispatcher on the phone
+                            was calm and reassuring, and the ambulance arrived in record time. The medical team was professional and compassionate, and they got me to the hospital quickly and safely. Thanks to Ambulance Go, I received the urgent medical
+                            attention I needed and gave birth to a healthy baby. I will always be grateful for their outstanding service and dedication to saving lives."ve received the medical care I needed. I highly recommend this app to anyone who values
+                            timely and reliable ambulance services. </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'img/staff1.jpg'%}" style="width: 100%; height: 600px; object-fit: cover; object-position: center; color: #000000;" alt="...">
+
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Happy client</h5>
+                        <p>The crew was very nice and treated the patient and family very well. They also thanked us for being time and professional. They loved how we treated this transport and even stated they would be requesting ValueCare for further
+                            trips. Compliment from hospital.</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+    </section>
+
+    <section class="main1">
+        <h3>Review Section.</h3>
+        <p>This is what our lovely clients have to say!</p>
+        <div class="full-boxer">
+            <div class="comment-box">
+                <div class="box-top">
+                    <div class="Profile">
+                        <div class="profile-image">
+                            <img src="{% static 'img/gene.jpg'%}">
+                        </div>
+                        <div class="Name">
+                            <strong>Namuyomba Genesis</strong>
+                            <span>@Jenesys</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="comment">
+                    <p>
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    </p>
+                </div>
+            </div>
+
+            <div class="comment-box">
+                <div class="box-top">
+                    <div class="Profile">
+                        <div class="profile-image">
+                            <img src="{% static 'img/anto.jpg'%}">
+                        </div>
+                        <div class="Name">
+                            <strong>Muyomba Antonio</strong>
+                            <span>@Dhat_Dude</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="comment">
+                    <p>
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    </p>
+                </div>
+            </div>
+
+            <div class="comment-box">
+                <div class="box-top">
+                    <div class="Profile">
+                        <div class="profile-image">
+                            <img src="{% static 'img/vivi.jpg'%}">
+                        </div>
+                        <div class="Name">
+                            <strong>Nakamoga Vivian</strong>
+                            <span>@Nakazoza</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="comment">
+                    <p>
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    </p>
+                </div>
+            </div>
+
+            <div class="comment-box">
+                <div class="box-top">
+                    <div class="Profile">
+                        <div class="profile-image">
+                            <img src="{% static 'img/domi.jpg'%}">
+                        </div>
+                        <div class="Name">
+                            <strong>Lubega Dominic</strong>
+                            <span>@Domi_lubz</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="comment">
+                    <p>
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact">
+
+        <div class="container">
+
+            <div class="contact-box">
+
+                <div class="left"> </div>
+                <div class="right">
+                    <h2>Contact Us</h2>
+
+                    <input type="text" class="field" placeholder="Your Name">
+                    <input type="text" class="field" placeholder="Your Email">
+                    <input type="text" class="field" placeholder="Phone">
+                    <textarea placeholder="Message" class="field"></textarea>
+                    <button class="btn">Send</button>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>Ambu Go APP.</h4>
+                    <ul>
+                        <li><a href="#">about us</a></li>
+                        <li><a href="#">our services</a></li>
+                        <li><a href="#">privacy policy</a></li>
+                        <li><a href="#">affiliate program</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>offers</h4>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li>
+                            <a href="#">Track Ambulance</a>
+                        </li>
+                        <li>
+                            <a href="#">Set Availability</a>
+                        </li>
+                        <li><a href="#">Route Optimizer</a></li>
+
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Shortcuts</h4>
+                    <ul>
+                        <li><a href="#">ETA</a></li>
+                        <li><a href="#">Sign-in</a></li>
+                        <li><a href="#">Suggest Short Route</a></li>
+                        <li><a href="#">Dashboard
+                        </a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>follow us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="./Font-Awesome/all.min.js"></script>
+    <script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js " integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2 " crossorigin="anonymous "></script>
+
+</body>
+<style>
+    * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+        font-family: poppins;
+    }
+    
+    a {
+        text-decoration: none;
+    }
+    
+    ul {
+        list-style: none;
+    }
+    
+    #hero {
+        background-color: #f5f7fb;
+        display: flex;
+        flex-direction: column;
+        min-height: 600px;
+        justify-content: space-between;
+    }
+    
+    .navigation {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        width: 90%;
+        margin: 0px auto;
+        padding: 30px 0px;
+    }
+    
+    .logo {
+        color: #122853;
+        font-weight: 700;
+        font-size: 1.6rem;
+    }
+    
+    .logo span {
+        background-color: #27408B;
+        color: #ffffff;
+        padding: 0px 5px;
+        border-radius: 5px;
+        font-weight: 600px;
+        margin-right: 5px;
+    }
+    
+    .menu {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: auto;
+        margin-left: 40px;
+    }
+    
+    .menu li a {
+        margin: 0px 20px;
+        color: #303030;
+        font-weight: 550;
+        transition: all ease 0.3s;
+    }
+    
+    .menu li a:hover {
+        color: #014dd5;
+    }
+    
+    .nav-appointment-btn {
+        height: 45px;
+        padding: 0px 20px;
+        border-radius: 4px;
+        background-color: #27408B;
+        color: #ffffff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 500;
+        letter-spacing: 1px;
+        font-size: 0.9rem;
+    }
+    
+    .hero-content {
+        max-width: 1200px;
+        width: 90%;
+        margin: 0px auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: flex-start;
+        margin-top: auto;
+    }
+    
+    .hero-img {
+        display: flex;
+    }
+    
+    .hero-img img {
+        width: 100%;
+        height: 100%;
+        max-height: 450px;
+        object-fit: contain;
+        object-position: center bottom;
+    }
+    
+    .hero-text {
+        display: flex;
+        flex-direction: column;
+        margin-top: 30px;
+    }
+    
+    .hero-text h1 {
+        font-size: 3.2rem;
+        color: #122853;
+        line-height: 3.6rem;
+        font-weight: 600;
+    }
+    
+    .hero-text p {
+        color: #535353;
+        margin: 15px 0px;
+        max-width: 500px;
+        letter-spacing: 0.3px;
+        line-height: 1.8rem;
+    }
+    
+    .hero-text-btns {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    
+    .hero-text-btns a {
+        height: 45px;
+        padding: 0px 15px;
+        background-color: #122853;
+        color: #ffffff;
+        border-radius: 4px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 0.9rem;
+        letter-spacing: 0.5px;
+        font-weight: 500;
+        margin-right: 14px;
+    }
+    
+    .hero-text-btns a i {
+        width: 18px;
+        height: 18px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        background-color: #014DD5;
+        margin-right: 8px;
+        font-size: 0.5rem;
+        padding-bottom: 1PX;
+    }
+    
+    .appointment-search-container {
+        max-width: 1000px;
+        width: 90%;
+        background-color: #ffffff;
+        padding: 20px;
+        margin: auto;
+        border-radius: 10px;
+        box-shadow: 2px 16px 30px rgba(0, 0, 0, 0.12);
+        z-index: 3;
+        position: relative;
+        margin-top: -55px;
+    }
+    
+    .appointment-search-container h3 {
+        color: #122853;
+        font-size: 1.2rem;
+        margin-bottom: 5px;
+    }
+    
+    .appointment-search {
+        display: grid;
+        grid-template-columns: 1fr 1fr 60px;
+        grid-gap: 10px;
+    }
+    
+    .appo-search-box {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #f7fbff;
+        padding: 15px;
+        border-radius: 4px;
+        border: 1px solid #e4e4e4;
+    }
+    
+    .appo-search-box i {
+        color: #535353;
+        margin-right: 10px;
+    }
+    
+    .appo-search-box input {
+        width: 100%;
+        background-color: transparent;
+        border: none;
+        outline: none;
+    }
+    
+    .appointment-search button {
+        background-color: #014DD5;
+        color: #ffffff;
+        border: none;
+        outline: none;
+        border-radius: 5px;
+        font-size: 1.1rem;
+        cursor: pointer;
+    }
+    
+    .what-we-provide {
+        max-width: 1200px;
+        width: 90%;
+        margin: 50px auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    
+    .w-infor-box {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    
+    .w-infor-icon {
+        width: 60px;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 15px;
+        font-size: 1.4rem;
+        border-radius: 5px;
+    }
+    
+    .w-infor-box1 .w-infor-icon {
+        background-color: #BF3EFF;
+    }
+    
+    .w-infor-box2 .w-infor-icon {
+        background-color: #d4ffe1;
+    }
+    
+    .w-infor-box3 .w-infor-icon {
+        background-color: #FFEFDB;
+    }
+    
+    .w-infor-box4 .w-infor-icon {
+        background-color: #98FB98;
+    }
+    
+    .w-infor-box5 .w-infor-icon {
+        background-color: #FFF68F;
+    }
+    
+    .w-infor-box6 .w-infor-icon {
+        background-color: #B3B3B3;
+    }
+    
+    .w-infor-text {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .w-infor-text strong {
+        color: #122853;
+        font-weight: 700;
+    }
+    
+    .w-infor-text p {
+        color: #535353;
+        font-size: 0.9rem;
+        letter-spacing: 0.3px;
+    }
+    
+    #our-story {
+        background-color: #f5f7fb;
+        max-width: 1200px;
+        width: 90%;
+        margin: 80px auto;
+        border: 10px solid#ffffff;
+        box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.12);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .our-story-img {
+        width: 100%;
+        display: flex;
+    }
+    
+    .our-story-img img {
+        width: 100%;
+        height: 500px;
+        object-fit: cover;
+        object-position: center;
+    }
+    
+    .our-story-text {
+        padding: 50p;
+    }
+    
+    .our-story-text h2 {
+        font-size: 2.8rem;
+        color: #122853;
+        line-height: 2.5rem;
+        font-weight: 600;
+        text-align: center;
+    }
+    
+    .our-story-text p {
+        font-size: 0.9rem;
+        color: #535353;
+        line-height: 1.8rem;
+        font-weight: 550;
+        margin: 10px 0px;
+        letter-spacing: 0.4px;
+        padding-left: 10px;
+    }
+    
+    .our-story-text p span {
+        font-weight: 700;
+    }
+    
+    .story-number-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 20px;
+        margin-top: 20px;
+    }
+    
+    .story-number-box {
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        border-radius: 5px;
+        height: 20px;
+        background-color: #d4e7ff;
+    }
+    
+    #our_maps {
+        display: flex;
+        flex-direction: column;
+        min-height: 600px;
+        justify-content: space-between;
+        background-color: #3D9140;
+        width: 95%;
+        margin: 70px auto;
+        border: 10px solid#ffffff;
+        box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.12);
+        border-radius: 4px;
+    }
+    
+    #maps {
+        height: 600px;
+        width: 100%;
+    }
+    
+    .maps_title h2 {
+        font-size: 3.2rem;
+        color: #122853;
+        line-height: 3.6rem;
+        font-weight: 500;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+    }
+    
+    .maps_title p {
+        font-size: 1.2rem;
+        color: #535353;
+        line-height: 2rem;
+        font-weight: 500;
+        margin: 10px 0px;
+        letter-spacing: 0.4px;
+        padding-left: 25px;
+    }
+    
+    #test {
+        display: flex;
+        flex-direction: column;
+        min-height: 600px;
+        justify-content: space-between;
+        background-color: #f5f7fb;
+        width: 95%;
+        margin: 70px auto;
+        border: 10px solid#ffffff;
+        box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.12);
+        border-radius: 4px;
+    }
+    
+    #team {
+        max-width: 1200px;
+        width: 90%;
+        margin: 80px auto;
+    }
+    
+    .team-heading {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+    }
+    
+    .team-heading h3 {
+        font-size: 2.4rem;
+        color: #122853;
+    }
+    
+    .team-heading p {
+        font-size: 1.2rem;
+        color: #535353;
+        line-height: 2rem;
+        font-weight: 500;
+        margin: 10px 0px;
+        letter-spacing: 0.4px;
+        padding-left: 25px;
+    }
+    
+    .team-box.story-number-container {
+        width: 100%;
+        margin-top: 40px;
+    }
+    
+    .team-box {
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .team-img {
+        background-color: #eaeff8;
+        padding: 10p 10px 0px 10px;
+        height: 300px;
+        display: flex;
+        align-items: flex-end;
+    }
+    
+    .team-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center bottom;
+    }
+    
+    .team-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        margin-top: 10px;
+        text-align: center;
+    }
+    
+    .team-text strong {
+        color: #122853;
+    }
+    
+    .team-text span {
+        color: #303030;
+        font-size: 0.9rem;
+        margin-top: 5px;
+    }
+    
+    @font-face {
+        font-family: Exo;
+        src: url(./fonts/Exo2.0-Medium.otf);
+    }
+    
+    .main {
+        width: 100%;
+        height: 400px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.50)),
+        url("{% static 'img/ambu1.jpg' %} ");
+        background-repeat: repeat;
+        background-size: contain;
+        background-position: fill;
+    }
+    
+    .profile-card {
+        position: relative;
+        width: 220px;
+        height: 220px;
+        background: #fff;
+        padding: 30px;
+        border-radius: 50%;
+        box-shadow: 0 0 22px #3336;
+        transition: .6s;
+        margin: 0 25px;
+    }
+    
+    .profile-card:hover {
+        border-radius: 10px;
+        height: 260px;
+    }
+    
+    .profile-card .img {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transition: .6s;
+        z-index: 99;
+    }
+    
+    .profile-card:hover .img {
+        transform: translateY(-60px);
+    }
+    
+    .img img {
+        width: 100%;
+        border-radius: 50%;
+        box-shadow: 0 0 22px #3336;
+        transition: .6s;
+    }
+    
+    .profile-card:hover img {
+        border-radius: 10px;
+    }
+    
+    .caption {
+        text-align: center;
+        transform: translateY(-80px);
+        opacity: 0;
+        transition: .6s;
+    }
+    
+    .profile-card:hover .caption {
+        opacity: 1;
+    }
+    
+    .caption h3 {
+        font-size: 21px;
+    }
+    
+    .caption p {
+        font-size: 16px;
+        color: #0c52a1;
+        margin: 2px 0 9px 0;
+    }
+    
+    .caption .social-links a {
+        color: #333;
+        margin-right: 8px;
+        font-size: 21px;
+        transition: .6s;
+    }
+    
+    .social-links a:hover {
+        color: #0c52a1;
+    }
+    
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+    .container {
+        max-width: 1170px;
+        margin: auto;
+    }
+    
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    ul {
+        list-style: none;
+    }
+    
+    .footer {
+        background-color: #04173d;
+        padding: 70px 0;
+        height: 300px;
+    }
+    
+    .footer-col {
+        width: 25%;
+        padding: 0 15px;
+    }
+    
+    .footer-col h4 {
+        font-size: 18px;
+        color: #ffffff;
+        text-transform: capitalize;
+        margin-bottom: 35px;
+        font-weight: 500;
+        position: relative;
+    }
+    
+    .footer-col h4::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -10px;
+        background-color: #e91e63;
+        height: 2px;
+        box-sizing: border-box;
+        width: 50px;
+    }
+    
+    .footer-col ul li:not(:last-child) {
+        margin-bottom: 10px;
+    }
+    
+    .footer-col ul li a {
+        font-size: 16px;
+        text-transform: capitalize;
+        color: #ffffff;
+        text-decoration: none;
+        font-weight: 300;
+        color: #bbbbbb;
+        display: block;
+        transition: all 0.3s ease;
+    }
+    
+    .footer-col ul li a:hover {
+        color: #ffffff;
+        padding-left: 8px;
+    }
+    
+    .footer-col .social-links a {
+        display: inline-block;
+        height: 40px;
+        width: 40px;
+        background-color: rgba(255, 255, 255, 0.2);
+        margin: 0 10px 10px 0;
+        text-align: center;
+        line-height: 40px;
+        border-radius: 50%;
+        color: #ffffff;
+        transition: all 0.5s ease;
+    }
+    
+    .footer-col .social-links a:hover {
+        color: #24262b;
+        background-color: #ffffff;
+    }
+    /*responsive*/
+    
+    @media(max-width: 767px) {
+        .footer-col {
+            width: 50%;
+            margin-bottom: 30px;
+        }
+    }
+    
+    @media(max-width: 574px) {
+        .footer-col {
+            width: 100%;
+        }
+    }
+    
+    .main1 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        margin-top: 150px;
+    }
+    
+    .full-boxer {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+    
+    .box-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+    
+    .comment-box:hover {
+        margin-top: 12px;
+    }
+    
+    .comment-box {
+        width: 500px;
+        background: white;
+        padding: 20px;
+        margin: 15px;
+        border-radius: 8px;
+        cursor: pointer;
+        box-shadow: 3px 3px 25px rgba(0, 0, 0, 0.3);
+    }
+    
+    .Profile {
+        display: flex;
+        align-items: center;
+    }
+    
+    .profile-image {
+        width: 70px;
+        height: 70px;
+        box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.3);
+        overflow: hidden;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+    
+    .profile-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+    
+    .Name {
+        display: flex;
+        flex-direction: column;
+        margin-left: 10px;
+    }
+    
+    .Name strong {
+        color: black;
+        font-size: 18px;
+    }
+    
+    .Name span {
+        color: gray;
+        margin-top: 2px;
+    }
+    
+    .comment p {
+        color: black;
+    }
+    
+    .main1 h3 {
+        font-size: 2.4rem;
+        color: #122853;
+    }
+    
+    .main1 p {
+        font-size: 1.2rem;
+        color: #535353;
+        line-height: 2rem;
+        font-weight: 500;
+        margin: 10px 0px;
+        letter-spacing: 0.4px;
+        padding-left: 25px;
+    }
+    
+    #fnb {
+        max-width: 1200px;
+        width: 90%;
+        margin: 100px auto;
+        border: 10px solid#ffffff;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .fnb-img {
+        width: 100%;
+        display: flex;
+    }
+    
+    .fnb-img img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        object-position: center;
+    }
+    
+    .fnb-text {
+        padding: 50p;
+    }
+    
+    .fnb-text h2 {
+        font-size: 2.8rem;
+        color: #122853;
+        line-height: 2.5rem;
+        font-weight: 600;
+        text-align: center;
+    }
+    
+    .fnb-text p {
+        font-size: 0.9rem;
+        color: #535353;
+        line-height: 1.8rem;
+        font-weight: 550;
+        margin: 10px 0px;
+        letter-spacing: 0.4px;
+        padding-left: 10px;
+    }
+    
+    .fnb-text p span {
+        font-weight: 700;
+    }
+    
+    .story-number-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 20px;
+        margin-top: 20px;
+    }
+    
+    .story-number-box {
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        border-radius: 5px;
+        height: 20px;
+        background-color: #d4e7ff;
+    }
+    
+    .L1 h5 {
+        font-size: 2.8rem;
+        color: #122853;
+        line-height: 2.5rem;
+        font-weight: 600;
+        text-align: center;
+    }
+    
+    .L2 h4 {
+        font-size: 2.8rem;
+        color: #122853;
+        line-height: 2.5rem;
+        font-weight: 600;
+        text-align: center;
+    }
+    
+    .L1 li {
+        font-size: 1rem;
+        color: #302e2e;
+        line-height: 1.5rem;
+        font-weight: 500;
+        margin: 10px 0px;
+        letter-spacing: 0.2px;
+        padding-left: 25px;
+    }
+    
+    .L2 li {
+        font-size: 1rem;
+        color: #302e2e;
+        line-height: 1.5rem;
+        font-weight: 500;
+        margin: 10px 0px;
+        letter-spacing: 0.2px;
+        padding-left: 25px;
+    }
+    
+    .container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 100px;
+    }
+    
+    .container:after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        background: url("img/bg.jpg") no-repeat center;
+        background-size: cover;
+        filter: blur(50px);
+        z-index: -1;
+    }
+    
+    .contact-box {
+        max-width: 850px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background-color: #fff;
+        box-shadow: 0px 0px 19px 5px rgba(0, 0, 0, 0.19);
+    }
+    
+    .left {
+        background-image: linear-gradient(rgba(0,
+        0,
+        0,
+        0.55),
+        rgba(0,
+        0,
+        0,
+        0.50)),
+        url("{% static 'img/test1.jpg' %} ");
+        background-size: cover;
+        height: 100%;
+    }
+    
+    .right {
+        padding: 25px 40px;
+    }
+    
+    h2 {
+        position: relative;
+        padding: 0 0 10px;
+        margin-bottom: 10px;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    h2:after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        transform: translateX(-50%);
+        height: 4px;
+        width: 50px;
+        border-radius: 2px;
+        background-color: #2ecc71;
+    }
+    
+    .field {
+        width: 100%;
+        border: 2px solid rgba(0, 0, 0, 0);
+        outline: none;
+        background-color: rgba(230, 230, 230, 0.6);
+        padding: 0.5rem 1rem;
+        font-size: 1.1rem;
+        margin-bottom: 22px;
+        transition: .3s;
+    }
+    
+    .field:hover {
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+    
+    textarea {
+        min-height: 150px;
+    }
+    
+    .btn {
+        width: 100%;
+        padding: 0.5rem 1rem;
+        background-color: #2ecc71;
+        color: #fff;
+        font-size: 1.1rem;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        transition: .3s;
+    }
+    
+    .btn:hover {
+        background-color: #27ae60;
+    }
+    
+    .field:focus {
+        border: 2px solid rgba(30, 85, 250, 0.47);
+        background-color: #fff;
+    }
+    
+    @media screen and (max-width: 880px) {
+        .contact-box {
+            grid-template-columns: 1fr;
+        }
+        .left {
+            height: 200px;
+        }
+    }
+    
+    .emoji {
+        position: absolute;
+        /* Position the emoji absolutely */
+        left: -25px;
+    }
+</style>
+
+
+
+
+</html>

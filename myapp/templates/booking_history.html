@@ -1,0 +1,301 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking History - AmbuGO</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+
+<body>
+    <section id="hero">
+        <nav class="navigation">
+            <a class="logo" href="{% url 'index' %}">
+                <span>Ambu</span> Go App</a>
+            <ul class="menu">
+                <li>
+                    <a href="{% url 'booking_page' %}">Book An Ambulance</a>
+                </li>
+                <li>
+                    <a href="{% url 'booking_history' %}">Booking History</a>
+                </li>
+                <li>
+                    <a href="{% url 'confirmation_page' %}">Confirmation Page</a>
+                </li>
+                <li>
+                    <a href="{% url 'ambulance_registration' %}">Registration</a>
+                </li>
+            </ul>
+            <a href="" class="nav-appointment-btn">Emergence!</a>
+            <a href="{% url 'logout' %}" class="logout-btn">Logout</a>
+        </nav>
+
+
+    </section>
+
+    <div class="container">
+        <h1>Booking History</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Booking ID</th>
+                    <th>Patient Name</th>
+                    <th>Pickup Location</th>
+                    <th>Time</th>
+                    <!-- Add more columns as needed -->
+                </tr>
+            </thead>
+            <tbody>
+                {% for booking in bookings %}
+                <tr>
+                    <td>{{ booking.id }}</td>
+                    <td>{{ booking.patient_name }}</td>
+                    <td>{{ booking.pickup_location }}</td>
+                    <td>{{ booking.booking_time }}</td>
+                    <!-- Add more columns as needed -->
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+</body>
+<style>
+    /* styles.css */
+    
+    * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+        font-family: poppins;
+    }
+    
+    a {
+        text-decoration: none;
+    }
+    
+    ul {
+        list-style: none;
+    }
+    
+    #hero {
+        background-color: #f5f7fb;
+        display: flex;
+        flex-direction: column;
+        min-height: 10px;
+        justify-content: space-between;
+    }
+    
+    .navigation {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        width: 90%;
+        margin: 0px auto;
+        padding: 30px 0px;
+    }
+    
+    .logo {
+        color: #122853;
+        font-weight: 700;
+        font-size: 1.6rem;
+    }
+    
+    .logo span {
+        background-color: #27408B;
+        color: #ffffff;
+        padding: 0px 5px;
+        border-radius: 5px;
+        font-weight: 600px;
+        margin-right: 5px;
+    }
+    
+    .menu {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: auto;
+        margin-left: 40px;
+    }
+    
+    .menu li a {
+        margin: 0px 20px;
+        color: #303030;
+        font-weight: 550;
+        transition: all ease 0.3s;
+    }
+    
+    .menu li a:hover {
+        color: #014dd5;
+    }
+    
+    .nav-appointment-btn {
+        height: 45px;
+        padding: 0px 20px;
+        border-radius: 4px;
+        background-color: #27408B;
+        color: #ffffff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 500;
+        letter-spacing: 1px;
+        font-size: 0.9rem;
+    }
+    
+    .hero-content {
+        max-width: 1200px;
+        width: 90%;
+        margin: 0px auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: flex-start;
+        margin-top: auto;
+    }
+    
+    .hero-img {
+        display: flex;
+    }
+    
+    .hero-img img {
+        width: 100%;
+        height: 100%;
+        max-height: 450px;
+        object-fit: contain;
+        object-position: center bottom;
+    }
+    
+    .hero-text {
+        display: flex;
+        flex-direction: column;
+        margin-top: 30px;
+    }
+    
+    .hero-text h1 {
+        font-size: 3.2rem;
+        color: #122853;
+        line-height: 3.6rem;
+        font-weight: 600;
+    }
+    
+    .hero-text p {
+        color: #535353;
+        margin: 15px 0px;
+        max-width: 500px;
+        letter-spacing: 0.3px;
+        line-height: 1.8rem;
+    }
+    
+    .hero-text-btns {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    
+    .hero-text-btns a {
+        height: 45px;
+        padding: 0px 15px;
+        background-color: #122853;
+        color: #ffffff;
+        border-radius: 4px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 0.9rem;
+        letter-spacing: 0.5px;
+        font-weight: 500;
+        margin-right: 14px;
+    }
+    
+    .hero-text-btns a i {
+        width: 18px;
+        height: 18px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        background-color: #014DD5;
+        margin-right: 8px;
+        font-size: 0.5rem;
+        padding-bottom: 1PX;
+    }
+    
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+    }
+    
+    .container {
+        width: 80%;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    input[type="text"],
+    button {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        box-sizing: border-box;
+    }
+    
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    
+    th,
+    td {
+        border: 1px solid #ccc;
+        padding: 8px;
+    }
+    /* Additional styles as needed */
+    
+    .logout-btn {
+        height: 45px;
+        padding: 0px 20px;
+        border-radius: 4px;
+        background-color: #0e45a3;
+        /* Adjust color as needed */
+        color: #ffffff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 500;
+        letter-spacing: 1px;
+        font-size: 0.9rem;
+        margin-left: 10px;
+        /* Adjust spacing from emergency button */
+        text-decoration: none;
+        /* To remove default anchor underline */
+    }
+    
+    .logout-btn:hover {
+        background-color: #001c4f;
+        /* Adjust hover color as needed */
+        /* Add any additional hover effects */
+    }
+</style>
+
+</html>
