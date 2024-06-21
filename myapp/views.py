@@ -54,7 +54,7 @@ def view_bookings(request):
     # Fetch all documents from the "bookings" collection in Firestore
     users_ref = db.collection("users")
     # users = users_ref.get()
-    query = users_ref.where("bio", "==", "hi")  # Example: Filter users with age greater than 18
+    #  # Example: Filter users with age greater than 18
 
 #     # Execute the query and count the results
     users = query.stream()
