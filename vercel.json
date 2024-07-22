@@ -1,9 +1,11 @@
 {
-    "builds": [{
-        "src": "AmbuGo/wsgi.py",
-        "use": "@vercel/python",
-        "config": { "maxLambdaSize": "200mb", "runtime": "python3.9" }
-    }],
+    "functions": {
+        "AmbuGo/wsgi.py": {
+            "runtime": "python3.9",
+            "maxDuration": 900,
+            "memory": 1024
+        }
+    },
     "routes": [
         {
             "src": "/(.*)",
