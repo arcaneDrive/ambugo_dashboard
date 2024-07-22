@@ -9,10 +9,5 @@
             "src": "/(.*)",
             "dest": "AmbuGo/wsgi.py"
         }
-    ],
-    "functions": {
-        "AmbuGo/wsgi.py": {
-            "maxDuration": 900
-        }
-    }
+    ]
 }
