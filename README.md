@@ -1,1 +1,1 @@
-<img src="relative/path/to/image.jpg" alt="Alt text" width="width_in_pixels" height="height_in_pixels">
+<img src="./static/img/image.png" alt="demo" width="500px" height="500px">
